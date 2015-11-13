@@ -1,16 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use User;
 use Response;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class AdminController extends Controller
 {
-
     /**
      * Create a new password controller instance.
      */
@@ -48,6 +43,7 @@ class AdminController extends Controller
     public function lock()
     {
         $this->theme->layout('blank');
+
         return $this->theme->of('admin::user.lock')->render();
     }
 
@@ -71,11 +67,11 @@ class AdminController extends Controller
         return $this->theme->of('admin::general.reports')->render();
     }
 
-
     /**
      * Return success message.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Response
      */
     public function error($message, $status = 400)
@@ -86,7 +82,8 @@ class AdminController extends Controller
     /**
      * Return error message.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return Response
      */
     public function success($message, $status = 201)
